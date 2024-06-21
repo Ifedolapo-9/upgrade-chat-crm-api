@@ -1,0 +1,14 @@
+site_name: UPGRADE.CHAT CRM API DOCUMENTATION
+theme: readthedocs
+
+nav:
+  - Home: 
+    - Overview: overview.md
+  - Authentication: authentication.md
+  - Error Handling: error_handling.md
+  - Rate Limits: rate_limits.md
+  - Tenants: tenants.md
+  - Customers: customers.md
+
+
+ 
