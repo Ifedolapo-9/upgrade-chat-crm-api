@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Tenants - UPGRADE.CHAT CRM API DOCUMENTATION</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Tenants";
+        var mkdocs_page_input_path = "tenants.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> UPGRADE.CHAT CRM API DOCUMENTATION
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Home</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../authentication/">Authentication</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../error_handling/">Error Handling</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rate_limits/">Rate Limits</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Tenants</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#add-tenants-1">Add Tenants (1)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#add-tenants-2">Add Tenants (2)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_1">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generate-api-key">Generate API KEY</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_2">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#link-tenants">Link Tenants</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_3">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#delete-tenant">Delete Tenant</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_4">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#update-tenant-account-currency">Update Tenant Account Currency</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_5">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-tenant-account-login-link">Get Tenant Account Login Link</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_6">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set-stripe-connected-account">Set Stripe Connected Account</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_7">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../customers/">Customers</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">UPGRADE.CHAT CRM API DOCUMENTATION</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Tenants</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="tenants">TENANTS</h1>
+<h2 id="add-tenants-1">Add Tenants (1)</h2>
+<p>'<strong>POST</strong>  {environment domain}/api/services/CRM/Lead/SubmitTenancyRequest'</p>
+<p>Submit the request for a new tenant to the system</p>
+<h3 id="request-parameters">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>companyName</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Business Name from the first form</td>
+</tr>
+<tr>
+<td>products</td>
+<td>Array of Objects</td>
+<td>See below</td>
+<td>List of product subscription details</td>
+</tr>
+<tr>
+<td>products[].productId</td>
+<td>Integer</td>
+<td>Valid product IDs</td>
+<td>The platform ProductId</td>
+</tr>
+<tr>
+<td>products[].paymentPeriodType</td>
+<td>String</td>
+<td>"Monthly", "Annual"</td>
+<td>Subscription payment period</td>
+</tr>
+<tr>
+<td>products[].quantity</td>
+<td>Integer</td>
+<td>1</td>
+<td>Must be 1 for subscriptions</td>
+</tr>
+<tr>
+<td>city</td>
+<td>String</td>
+<td>Any valid city name</td>
+<td>City from "Tell Us About Yourself" form</td>
+</tr>
+<tr>
+<td>state</td>
+<td>String</td>
+<td>Valid state/province codes</td>
+<td>State from "Tell Us About Yourself" form</td>
+</tr>
+<tr>
+<td>firstName</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>First Name from the first form</td>
+</tr>
+<tr>
+<td>lastName</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Last Name from the first form</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+<td>Valid email address</td>
+<td>Email from the first form</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>String</td>
+<td>"+[country code][number]"</td>
+<td>Full phone number with country code</td>
+</tr>
+<tr>
+<td>affiliateCode</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Referral Code from the first form</td>
+</tr>
+</tbody>
+</table>
+<p>Optional parameters:</p>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>website</td>
+<td>String</td>
+<td>Valid URL</td>
+<td>Will be stored as website link in Contact Details</td>
+</tr>
+<tr>
+<td>stage</td>
+<td>String</td>
+<td>Valid stage names</td>
+<td>The stage in which this lead will be added</td>
+</tr>
+<tr>
+<td>tag</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Tag to assign to this contact</td>
+</tr>
+<tr>
+<td>phoneExt</td>
+<td>String</td>
+<td>Valid extension number</td>
+<td>Phone extension (if applicable)</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>String</td>
+<td>Any text</td>
+<td>Will be stored as a Lead Comment</td>
+</tr>
+<tr>
+<td>sourceCode</td>
+<td>String</td>
+<td>Valid source codes</td>
+<td>Tracking parameter for lead source</td>
+</tr>
+<tr>
+<td>channelCode</td>
+<td>String</td>
+<td>Valid channel codes</td>
+<td>Tracking parameter for lead channel</td>
+</tr>
+<tr>
+<td>isHelpNeeded</td>
+<td>Boolean</td>
+<td>true/false</td>
+<td>Indicates if help is needed (not required)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Body</strong></p>
+<pre><code>    {
+    "companyName": "TestCRM", //Business Name from the first form
+    "products": [
+        {
+        "productId": 318, // This is the platform ProductId be able to pass it here becuase products will be created before. 
+        "paymentPeriodType": "Monthly", // We support several Periods.But on your form I saw 2 values: Monthly and Annual
+        "quantity": 1 // must 1 becuase this is subscription
+        }
+    ],
+    //"website"        : "www.Ajacco.com",         // It will be stored as website link in Contact Details
+        "city"           : "Dallas",                 // City from "Tell Us About Yourself" form
+        "state"          : "TX",                     // State from "Tell Us About Yourself" form
+    //"stage"          : "Interested",             // You can set in which stage this lead will be added
+    //"tag"            : "Partner Referral",       // You can assign any tag to this contact 
+        "firstName"      : "John",                   // First Name from the first form
+        "lastName"       : "Doe",                    // Last Name from the first form
+        "email"          : "john.doe@testemail.com", // Email from the first form
+        "phone"          : "+15059333763",           // Whole Phone number (with+ and country code) from "Tell Us About Yourself" form
+    //"phoneExt"       : "665",                    // cab be skipped as you do not have it
+    //"comments"       : "This Postman request",   // You can pass here any text. It will be stored as a Lead Comment
+    //"sourceCode"     : "Manual",                 // This is tracking parameter which can be skipped if you do not use 
+    //"channelCode"    : "Postman",                // This is tracking parameter which can be skipped if you do not use 
+        "affiliateCode"  : "SomeCode"                // Referral Code from the first form
+    //"isHelpNeeded"   : true                      // do not need
+
+    }'/'''
+</code></pre>
+<p><strong>Request Body</strong>
+    {
+    "companyName": "string",
+    "products": [
+        {
+        "productId": 0,
+        "paymentPeriodType": "Monthly",
+        "quantity": 0
+        }
+    ],
+    "couponCode": "string",
+    "website": "string",
+    "city": "}NLlplpNp}L{{Nlpp{pN{}l}p}p{pp'p''}'}pNL{LLlN-{lNN",
+    "state": "hp",
+    "stage": "string",
+    "tag": "string",
+    "utmParameter": {
+        "source": "string",
+        "medium": "string",
+        "campaign": "string",
+        "term": "string",
+        "content": "string",
+        "keyword": "string",
+        "adGroup": "string",
+        "name": "string"
+    },
+    "leadRequestXref": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "73XduH5qK-Y#Nev+U&amp;YDs$0k7lAqs4$Lko-d`-IblrU$oGnJ-KA'3/&amp;rxXT~^G+TZl$Jk9T26d4GS$u|ys?hyH.iY~o'gI=5=x/F",
+    "phone": "string",
+    "phoneExt": "string",
+    "comments": "string",
+    "sourceCode": "string",
+    "channelCode": "string",
+    "campaignCode": "string",
+    "affiliateCode": "string",
+    "refererUrl": "string",
+    "entryUrl": "string",
+    "userAgent": "string",
+    "clientIp": "string",
+    "isHelpNeeded": true
+    }/'''</p>
+<p><strong>Sample Response: 200</strong>
+    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }/'''</p>
+<hr />
+<h2 id="add-tenants-2">Add Tenants (2)</h2>
+<p>Complete Tenant Registration</p>
+<hr />
+<p>'<strong>POST</strong> {environment domain}/api/services/Platform/TenantSubscription/CompleteTenantRegistration</p>
+<hr />
+<h3 id="request-parameters_1">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tenantName</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Name of the Tenant. Can be Business Name from first or second form</td>
+</tr>
+<tr>
+<td>adminPassword</td>
+<td>String</td>
+<td>Valid password string</td>
+<td>Required. Can be password from the first form or autogenerated</td>
+</tr>
+<tr>
+<td>companyName</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Can be Business Name from first or second form</td>
+</tr>
+<tr>
+<td>requestXref</td>
+<td>String</td>
+<td>Valid UUID</td>
+<td>leadRequestXref parameter from SubmitTenancyRequest's output</td>
+</tr>
+<tr>
+<td>returnBearerToken</td>
+<td>Boolean</td>
+<td>true/false</td>
+<td>If true, BearerToken will be returned in output</td>
+</tr>
+</tbody>
+</table>
+<p>Optional parameters:</p>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>siteUrl</td>
+<td>String</td>
+<td>Valid URL</td>
+<td>Optional URL for the tenant's site</td>
+</tr>
+<tr>
+<td>tenancyName</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Optional name for the tenancy</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Body</strong></p>
+<pre><code>    {
+        "tenantName": "Ajacco", //it will be used as Name of the Tenant. It can be Bussiness Name from first or the second form
+        //"siteUrl": "", // optional
+        "adminPassword": "Qq123456789", //Required. It can be password from the first form or autogenerateds
+        //"tenancyName": "", // optional
+        "companyName": "Ajacco",//It can be Bussiness Name from first or the second form
+        "requestXref": "7244d39e-2b4c-444a-9237-25a8a502a42b",//leadRequestXref parameter from SubmitTenancyRequest's output
+        "returnBearerToken": true// If true BearerToken will be returted in output. I think we will need this bearer to run requests unter the tenant
+    }/'''
+</code></pre>
+<hr />
+<p><strong>Sample Request</strong>
+    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/Platform/TenantSubscription/CompleteTenantRegistration' \
+    -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: null' \
+    -d '{
+    "requestXref": "string",
+    "tenancyName": "cg514QZFCmhBNILbzF",
+    "tenantName": "string",
+    "companyName": "string",
+    "siteUrl": "string",
+    "adminPassword": "string",
+    "noWelcomeEmail": true,
+    "returnBearerToken": true
+    }'/'''</p>
+<p><strong>Sample Response: 200</strong>
+    {
+    "tenantId": 0,
+    "tenancyName": "string",
+    "name": "string",
+    "userName": "string",
+    "userId": 0,
+    "emailAddress": "string",
+    "isEmailConfirmationRequired": true,
+    "loginLink": "string",
+    "paymentLink": "string",
+    "stripePayUrl": "string",
+    "publicInvoiceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "bearerAccessToken": "string",
+    "bearerRefreshToken": "string"
+    }/'''</p>
+<hr />
+<h2 id="generate-api-key">Generate API KEY</h2>
+<p>Create API key for tenant's account future actions </p>
+<hr />
+<p>'<strong>POST</strong> {environment domain}/api/services/Platform/ApiKey/Generate</p>
+<hr />
+<h3 id="request-parameters_2">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A specific name for the API KEY</td>
+</tr>
+<tr>
+<td>expirationDate</td>
+<td>ISO 8601 date-time</td>
+<td>Valid future date-time</td>
+<td>The expiration time of the API KEY. The API KEY will cease to function after this time</td>
+</tr>
+<tr>
+<td>userId</td>
+<td>Integer</td>
+<td>0 or positive integer</td>
+<td>Optional. CRM User ID. Can be provided to generate an API KEY for another user. If omitted, the API KEY will be generated for the currently logged-in user</td>
+</tr>
+<tr>
+<td>paths</td>
+<td>String</td>
+<td>Comma-separated list of API method paths</td>
+<td>Optional. A list of API methods can be specified here. If provided, the API KEY will only work for these specified API methods</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Body</strong>
+    {
+    "name": "string",
+    "expirationDate": "2024-06-21T08:58:52.393Z",
+    "userId": 0,
+    "paths": "string"
+    }/'''</p>
+<p><strong>Sample Request</strong>
+        {
+        "name": "string", // A certain name of the API KEY
+        "expirationDate": "2023-12-12T16:40:40.016Z", // You have to set the expiration time of the API KEY. After this time API KEY will not work
+        "userId": 0,// Optional. CRM User ID. It can be passed if you are going to generate API KEY for another user. Can be skipped then API KEY will be generated for user which is logged in
+        "paths": "string" // Optional. Here the list of API methods can be set and this API KEY will work only for those API methods
+        }/'''</p>
+<hr />
+<p><strong>Sample Response: 200</strong>
+    {
+    "id": 0,
+    "name": "string",
+    "key": "string",
+    "expirationDate": "2024-06-21T08:58:52.395Z",
+    "creationTime": "2024-06-21T08:58:52.395Z",
+    "userId": 0,
+    "userName": "string",
+    "paths": "string"
+    }/'''</p>
+<hr />
+<h2 id="link-tenants">Link Tenants</h2>
+<p>Link multiple tenants</p>
+<hr />
+<p>'<strong>POST</strong> {environment domain}/api/services/Platform/UserLink/LinkToUser</p>
+<hr />
+<h3 id="request-parameters_3">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tenancyName</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the tenancy or organization to authenticate against</td>
+</tr>
+<tr>
+<td>usernameOrEmailAddress</td>
+<td>String</td>
+<td>Valid username or email address</td>
+<td>The username or email address of the user attempting to authenticate</td>
+</tr>
+<tr>
+<td>password</td>
+<td>String</td>
+<td>Valid password string</td>
+<td>The password associated with the provided username or email address</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Body</strong>
+    {
+    "tenancyName": "string",
+    "usernameOrEmailAddress": "string",
+    "password": "string"
+    }/'''</p>
+<p><strong>Sample Request</strong>
+    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/Platform/UserLink/LinkToUser' \
+    -H 'accept: <em>/</em>' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: null' \
+    -d '{
+    "tenancyName": "string",
+    "usernameOrEmailAddress": "string",
+    "password": "string"
+    }'/'''</p>
+<hr />
+<p><strong>Response: 200 (Success)</strong></p>
+<hr />
+<h2 id="delete-tenant">Delete Tenant</h2>
+<p>Delete Tenant</p>
+<hr />
+<p><strong>DELETE</strong> {environment domain}/api/services/Platform/Tenant/DeleteTenant?Id=tenant_id </p>
+<hr />
+<h3 id="request-parameters_4">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tenant_id</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The id of the tenant or organization to be deleted</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Request</strong>
+    curl -X 'DELETE' \
+    'https://crm.upgrade.chat/api/services/Platform/Tenant/DeleteTenant' \
+    -H 'accept: <em>/</em>' \
+    -H 'Authorization: Bearer <your token>'/'''</p>
+<hr />
+<p><strong>Response: 200 (Success)</strong></p>
+<hr />
+<h2 id="update-tenant-account-currency">Update Tenant Account Currency</h2>
+<p>Update tenant account default currency.</p>
+<hr />
+<p>'<strong>PUT</strong>  {environment domain}/api/services/Platform/TenantSettings/UpdateGeneralSettings</p>
+<hr />
+<h3 id="request-parameters_5">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>defaultCountryCode</td>
+<td>String</td>
+<td>Valid ISO 3166-1 alpha-2 country code</td>
+<td>The default country code for the account, e.g., "US" for United States</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>String</td>
+<td>Valid timezone string or empty</td>
+<td>The timezone for the account. If left empty, a default may be used</td>
+</tr>
+<tr>
+<td>timezoneForComparison</td>
+<td>String</td>
+<td>Valid timezone string</td>
+<td>The timezone to be used for comparison purposes, e.g., "UTC"</td>
+</tr>
+<tr>
+<td>zendeskAccountUrl</td>
+<td>String</td>
+<td>Valid URL or empty string</td>
+<td>The URL for the associated Zendesk account, if applicable</td>
+</tr>
+<tr>
+<td>publicPhone</td>
+<td>String or null</td>
+<td>Valid phone number or null</td>
+<td>The public phone number for the account. Can be null if not provided</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>String</td>
+<td>Valid ISO 4217 currency code</td>
+<td>The currency to be used for the account, e.g., "JPY" for Japanese Yen</td>
+</tr>
+<tr>
+<td>publicSiteUrl</td>
+<td>String or null</td>
+<td>Valid URL or null</td>
+<td>The public website URL for the account. Can be null if not provided</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Body</strong>
+        {
+            "defaultCountryCode": "US",
+            "timezone": "",
+            "timezoneForComparison": "UTC",
+            "zendeskAccountUrl": "",
+            "publicPhone": null,
+            "currency": "JPY",
+            "publicSiteUrl": null
+        }/'''</p>
+<hr />
+<p><strong>Sample Request</strong>
+    curl -X 'PUT' \
+    'https://crm.upgrade.chat/api/services/Platform/TenantSettings/UpdateGeneralSettings' \
+    -H 'accept: <em>/</em>' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: null' \
+    -d '{
+    "defaultCountryCode": "string",
+    "timezone": "string",
+    "timezoneForComparison": "string",
+    "zendeskAccountUrl": "string",
+    "publicPhone": "string",
+    "currency": "string",
+    "publicSiteUrl": "string"
+    }'/'''</p>
+<hr />
+<p><strong>Response: 200 (Sucess)</strong></p>
+<hr />
+<h2 id="get-tenant-account-login-link">Get Tenant Account Login Link</h2>
+<p>Login user without entering email and password</p>
+<hr />
+<p>'<strong>GET</strong> {environment domain}/api/services/Platform/User/GetAutoLoginLink?userId={user_id}&amp;lifeTimeMinutes={minutes}</p>
+<hr />
+<h3 id="request-parameters_6">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The id of the tenant or organization to be deleted</td>
+</tr>
+<tr>
+<td>lifeTimeMinutes</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The time in minutes</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Request</strong></p>
+<p>curl -X 'GET' \
+  'https://crm.upgrade.chat/api/services/Platform/User/GetAutoLoginLink' \
+  -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+  -H 'Authorization: null'/'''</p>
+<hr />
+<p><strong>Response: 200</strong></p>
+<h2 id="set-stripe-connected-account">Set Stripe Connected Account</h2>
+<p>Set already connected stripe account in the tenants account</p>
+<hr />
+<p>'<strong>POST</strong> {environment domain}/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount</p>
+<hr />
+<h3 id="request-parameters_7">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectedAccountId</td>
+<td>String</td>
+<td>Valid Stripe account ID</td>
+<td>The unique identifier of the connected Stripe account, typically starting with "acct_" followed by alphanumeric characters</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Body</strong>
+{
+  "connectedAccountId": "acct_1MD475HHdexuAbVt"</p>
+<p>}</p>
+<p><strong>Sample Request</strong></p>
+<pre><code>curl -X 'POST' \
+'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+-H 'accept: */*' \
+-H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+-H 'Authorization: Bearer &lt;your token&gt;' \
+-d '{
+"connectedAccountId": "string"
+}'/'''
+</code></pre>
+<hr />
+<p><strong>Response: 200 (Success)</strong></p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../rate_limits/" class="btn btn-neutral float-left" title="Rate Limits"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../customers/" class="btn btn-neutral float-right" title="Customers">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../rate_limits/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../customers/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
