@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Subscriptions - UPGRADE.CHAT CRM API DOCUMENTATION</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Subscriptions";
+        var mkdocs_page_input_path = "subscriptions.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> UPGRADE.CHAT CRM API DOCUMENTATION
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Home</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../authentication/">Authentication</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../error_handling/">Error Handling</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rate_limits/">Rate Limits</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tenants/">Tenants</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../customers/">Customers</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../products/">Products</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../coupons/">Coupons</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../invoices/">Invoices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../payments/">Payments</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Subscriptions</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#request-parameters">Request Parameters</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../popular/">Popular</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../all_api_endpoints/">All API Endpoints</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">UPGRADE.CHAT CRM API DOCUMENTATION</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Subscriptions</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="add-subscription">ADD SUBSCRIPTION</h2>
+<p>Add a new subscription to the system</p>
+<hr />
+<p>'<strong>POST</strong> {environment domain}/api/services/CRM/OrderSubscription/Update</p>
+<hr />
+<h3 id="request-parameters">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectedAccountId</td>
+<td>String</td>
+<td>Valid Stripe account ID</td>
+<td>The unique identifier of the connected Stripe account, typically starting with "acct_" followed by alphanumeric characters</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Body</strong></p>
+<pre><code>    {
+    "connectedAccountId": "acct_1MD475HHdexuAbVt"
+
+    }
+</code></pre>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
+</code></pre>
+<hr />
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+<h2 id="update-subscriptions">UPDATE SUBSCRIPTIONS</h2>
+<p>Update an existing subscription's details</p>
+<hr />
+<p>'<strong>POST</strong> {environment domain} /api/services/CRM/OrderSubscription/Update</p>
+<hr />
+<h3 id="request-parameters_1">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the contact associated with the subscription.</td>
+</tr>
+<tr>
+<td><code>contactXref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The external reference (xref) of the contact.</td>
+</tr>
+<tr>
+<td><code>leadId</code></td>
+<td>Integer</td>
+<td>Any valid lead ID</td>
+<td>The ID of the lead associated with the subscription.</td>
+</tr>
+<tr>
+<td><code>orderNumber</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The order number associated with the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the subscription information.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].code</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The code of the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].level</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The level of the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].startDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The start date of the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].endDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The end date of the subscription.</td>
+</tr>
+<tr>
+<td><code>subscriptions[].amount</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The amount of the subscription.</td>
+</tr>
+<tr>
+<td><code>products</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the product information.</td>
+</tr>
+<tr>
+<td><code>products[].productId</code></td>
+<td>Integer</td>
+<td>Any valid product ID</td>
+<td>The ID of the product.</td>
+</tr>
+<tr>
+<td><code>products[].productCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The code of the product.</td>
+</tr>
+<tr>
+<td><code>products[].paymentPeriodType</code></td>
+<td>String</td>
+<td><code>Monthly</code>, <code>Yearly</code></td>
+<td>The payment period type for the product.</td>
+</tr>
+<tr>
+<td><code>products[].hasRecurringBilling</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the product has recurring billing.</td>
+</tr>
+<tr>
+<td><code>products[].endDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The end date of the product.</td>
+</tr>
+<tr>
+<td><code>productId</code></td>
+<td>Integer</td>
+<td>Any valid product ID</td>
+<td>The ID of the product.</td>
+</tr>
+<tr>
+<td><code>productCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The code of the product.</td>
+</tr>
+<tr>
+<td><code>paymentPeriodType</code></td>
+<td>String</td>
+<td><code>Monthly</code>, <code>Yearly</code></td>
+<td>The payment period type for the product.</td>
+</tr>
+<tr>
+<td><code>hasRecurringBilling</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the product has recurring billing.</td>
+</tr>
+<tr>
+<td><code>skipExisting</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to skip existing subscriptions.</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Body</strong></p>
+<pre><code>    {
+    "contactId": 0,
+    "contactXref": "string",
+    "leadId": 0,
+    "orderNumber": "string",
+    "subscriptions": [
+    {
+    "code": "string",
+    "name": "string",
+    "level": "string",
+    "startDate": "2024-04-29T06:59:51.875Z",
+    "endDate": "2024-04-29T06:59:51.875Z",
+    "amount": 0
+    }
+    ],
+    "products": [
+    {
+    "productId": 0,
+    "productCode": "string",
+    "paymentPeriodType": "Monthly",
+    "hasRecurringBilling": true,
+    "endDate": "2024-04-29T06:59:51.875Z"
+    }
+    ],
+    "productId": 0,
+    "productCode": "string",
+    "paymentPeriodType": "Monthly",
+    "hasRecurringBilling": true,
+    "skipExisting": true
+    }
+</code></pre>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
+</code></pre>
+<hr />
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+<h2 id="list-subscriptions">LIST SUBSCRIPTIONS</h2>
+<p>Retrieve a list of all subscriptions</p>
+<hr />
+<p>'<strong>GET</strong> {environment domain}/api/services/CRM/OrderSubscription/GetSubscriptionHistory?contactId=contact_id</p>
+<hr />
+<h3 id="request-parameters_2">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contact_id</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The id of the contact</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
+</code></pre>
+<hr />
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../payments/" class="btn btn-neutral float-left" title="Payments"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../popular/" class="btn btn-neutral float-right" title="Popular">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../payments/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../popular/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

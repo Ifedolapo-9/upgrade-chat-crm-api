@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Products - UPGRADE.CHAT CRM API DOCUMENTATION</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Products";
+        var mkdocs_page_input_path = "products.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> UPGRADE.CHAT CRM API DOCUMENTATION
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Home</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="..">Overview</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../authentication/">Authentication</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../error_handling/">Error Handling</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rate_limits/">Rate Limits</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../tenants/">Tenants</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../customers/">Customers</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Products</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#request-parameters">Request Parameters</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../coupons/">Coupons</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../invoices/">Invoices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../payments/">Payments</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../subscriptions/">Subscriptions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../popular/">Popular</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../all_api_endpoints/">All API Endpoints</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">UPGRADE.CHAT CRM API DOCUMENTATION</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Products</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="add-products">ADD PRODUCTS</h2>
+<p>Add a new product to the system</p>
+<hr />
+<p>'<strong>POST</strong> {environment domain}/api/services/CRM/Product/CreateProduct</p>
+<hr />
+<h3 id="request-parameters">Request Parameters</h3>
+<h2 id="upgradechat-api-parameters">Upgrade.chat API Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The code of the product.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the product.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The description of the product.</td>
+</tr>
+<tr>
+<td><code>descriptionHtml</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The HTML description of the product.</td>
+</tr>
+<tr>
+<td><code>groupId</code></td>
+<td>Integer</td>
+<td>Any valid group ID</td>
+<td>The ID of the group the product belongs to.</td>
+</tr>
+<tr>
+<td><code>groupName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the group the product belongs to.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>String</td>
+<td><code>General</code></td>
+<td>The type of the product.</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The price of the product.</td>
+</tr>
+<tr>
+<td><code>currencyId</code></td>
+<td>String</td>
+<td>Any valid currency ID</td>
+<td>The ID of the currency for the price.</td>
+</tr>
+<tr>
+<td><code>commissionableAmount</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The commissionable amount for the product.</td>
+</tr>
+<tr>
+<td><code>maxCommissionRate</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The maximum commission rate for the product.</td>
+</tr>
+<tr>
+<td><code>maxCommissionRateTier2</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The maximum commission rate for tier 2 of the product.</td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>String</td>
+<td><code>Day</code></td>
+<td>The unit of the product.</td>
+</tr>
+<tr>
+<td><code>stripeXref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The Stripe cross-reference (xref) for the product.</td>
+</tr>
+<tr>
+<td><code>paypalXref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The PayPal cross-reference (xref) for the product.</td>
+</tr>
+<tr>
+<td><code>downgradeProductId</code></td>
+<td>Integer</td>
+<td>Any valid product ID</td>
+<td>The ID of the downgrade product.</td>
+</tr>
+<tr>
+<td><code>isPublished</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the product is published.</td>
+</tr>
+<tr>
+<td><code>publicName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The public name of the product.</td>
+</tr>
+<tr>
+<td><code>publishDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The date the product was published.</td>
+</tr>
+<tr>
+<td><code>publicAllowCoupon</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether coupons are allowed for the public version of the product.</td>
+</tr>
+<tr>
+<td><code>createUser</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to create a user for the product.</td>
+</tr>
+<tr>
+<td><code>productServices</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the services associated with the product.</td>
+</tr>
+<tr>
+<td><code>productServices[].memberServiceId</code></td>
+<td>Integer</td>
+<td>Any valid member service ID</td>
+<td>The ID of the member service.</td>
+</tr>
+<tr>
+<td><code>productServices[].memberServiceLevelId</code></td>
+<td>Integer</td>
+<td>Any valid member service level ID</td>
+<td>The ID of the member service level.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the subscription options for the product.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].frequency</code></td>
+<td>String</td>
+<td><code>Monthly</code></td>
+<td>The frequency of the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].signupFee</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The signup fee for the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].commissionableSignupFeeAmount</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The commissionable amount for the signup fee.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].fee</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The fee for the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].commissionableFeeAmount</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The commissionable amount for the fee.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].trialDayCount</code></td>
+<td>Integer</td>
+<td>Any valid integer</td>
+<td>The number of trial days for the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].customPeriodCount</code></td>
+<td>Integer</td>
+<td>Any valid integer</td>
+<td>The number of custom periods for the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].customPeriodType</code></td>
+<td>String</td>
+<td><code>Days</code></td>
+<td>The type of custom period for the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].cycles</code></td>
+<td>Integer</td>
+<td>Any valid integer</td>
+<td>The number of cycles for the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].gracePeriodDayCount</code></td>
+<td>Integer</td>
+<td>Any valid integer</td>
+<td>The number of grace period days for the subscription.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].stripeXref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The Stripe cross-reference (xref) for the subscription option.</td>
+</tr>
+<tr>
+<td><code>productSubscriptionOptions[].paypalXref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The PayPal cross-reference (xref) for the subscription option.</td>
+</tr>
+<tr>
+<td><code>productUpgradeAssignments</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the upgrade assignments for the product.</td>
+</tr>
+<tr>
+<td><code>productUpgradeAssignments[].upgradeProductId</code></td>
+<td>Integer</td>
+<td>Any valid product ID</td>
+<td>The ID of the upgrade product.</td>
+</tr>
+<tr>
+<td><code>productResources</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the resources associated with the product.</td>
+</tr>
+<tr>
+<td><code>productResources[].id</code></td>
+<td>UUID</td>
+<td>Any valid UUID</td>
+<td>The ID of the resource.</td>
+</tr>
+<tr>
+<td><code>productResources[].name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the resource.</td>
+</tr>
+<tr>
+<td><code>productResources[].url</code></td>
+<td>String</td>
+<td>Any valid URL</td>
+<td>The URL of the resource.</td>
+</tr>
+<tr>
+<td><code>productResources[].fileId</code></td>
+<td>UUID</td>
+<td>Any valid UUID</td>
+<td>The ID of the file associated with the resource.</td>
+</tr>
+<tr>
+<td><code>productEvent</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains information about the product event.</td>
+</tr>
+<tr>
+<td><code>productEvent.location</code></td>
+<td>String</td>
+<td><code>ToBeAnnounced</code></td>
+<td>The location of the product event.</td>
+</tr>
+<tr>
+<td><code>productEvent.link</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The link for the product event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains the address of the product event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.streetAddress</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The street address of the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.neighborhood</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The neighborhood of the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.city</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The city of the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.stateId</code></td>
+<td>String</td>
+<td>Any valid state ID</td>
+<td>The ID of the state for the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.stateName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the state for the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.zip</code></td>
+<td>String</td>
+<td>Any valid zip code</td>
+<td>The zip code for the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.countryId</code></td>
+<td>String</td>
+<td>Any valid country ID</td>
+<td>The ID of the country for the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.address.countryName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the country for the event.</td>
+</tr>
+<tr>
+<td><code>productEvent.date</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The date of the product event.</td>
+</tr>
+<tr>
+<td><code>productEvent.time</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The time of the product event.</td>
+</tr>
+<tr>
+<td><code>productEvent.durationMinutes</code></td>
+<td>Integer</td>
+<td>Any valid integer</td>
+<td>The duration of the product event in minutes.</td>
+</tr>
+<tr>
+<td><code>productEvent.timezone</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The timezone of the product event.</td>
+</tr>
+<tr>
+<td><code>productEvent.languageId</code></td>
+<td>String</td>
+<td>Any valid language ID</td>
+<td>The ID of the language for the product event.</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Body</strong></p>
+<pre><code>    {
+    "code": "string",
+    "name": "string",
+    "description": "string",
+    "descriptionHtml": "string",
+    "groupId": 0,
+    "groupName": "string",
+    "type": "General",
+    "price": 0,
+    "currencyId": "string",
+    "commissionableAmount": 0,
+    "maxCommissionRate": 0,
+    "maxCommissionRateTier2": 0,
+    "unit": "Day",
+    "stripeXref": "string",
+    "paypalXref": "string",
+    "downgradeProductId": 0,
+    "isPublished": true,
+    "publicName": "d.hNIhY186~l_taL1Bp39LH-jCo2Z0yzYsizqSb7CN0WkfcdqtAeqCULhGbtIp4snXV-_OKN1N.PmaRILE",
+    "publishDate": "2024-04-29T04:13:55.190Z",
+    "publicAllowCoupon": true,
+    "createUser": true,
+    "productServices": [
+    {
+            "memberServiceId": 0,
+            "memberServiceLevelId": 0
+    }
+    ],
+    "productSubscriptionOptions": [
+    {
+            "frequency": "Monthly",
+            "signupFee": 0,
+            "commissionableSignupFeeAmount": 0,
+            "fee": 0,
+            "commissionableFeeAmount": 0,
+            "trialDayCount": 0,
+            "customPeriodCount": 0,
+            "customPeriodType": "Days",
+            "cycles": 0,
+            "gracePeriodDayCount": 0,
+            "stripeXref": "string",
+            "paypalXref": "string"
+    }
+    ],
+    "productUpgradeAssignments": [
+    {
+            "upgradeProductId": 0
+    }
+    ],
+    "productResources": [
+    {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "name": "string",
+            "url": "string",
+            "fileId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+    ],
+    "productEvent": {
+    "location": "ToBeAnnounced",
+    "link": "string",
+    "address": {
+            "streetAddress": "string",
+            "neighborhood": "string",
+            "city": "string",
+            "stateId": "str",
+            "stateName": "string",
+            "zip": "string",
+            "countryId": "st",
+            "countryName": "string"
+    },
+    "date": "2024-04-29T04:13:55.190Z",
+    "time": "string",
+    "durationMinutes": 0,
+    "timezone": "string",
+    "languageId": "st"
+    }
+</code></pre>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
+</code></pre>
+<hr />
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+<hr />
+<h2 id="update-product">UPDATE PRODUCT</h2>
+<p>Update a product </p>
+<hr />
+<p>'<strong>PUT</strong> {environment domain}/api/services/CRM/Product/UpdateProduct</p>
+<hr />
+<h3 id="request-parameters_1">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connectedAccountId</td>
+<td>String</td>
+<td>Valid Stripe account ID</td>
+<td>The unique identifier of the connected Stripe account, typically starting with "acct_" followed by alphanumeric characters</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Body</strong></p>
+<pre><code>            {
+    "id": 0,
+    "code": "string",
+    "name": "string",
+    "description": "string",
+    "descriptionHtml": "string",
+    "groupId": 0,
+    "groupName": "string",
+    "type": "General",
+    "price": 0,
+    "currencyId": "string",
+    "commissionableAmount": 0,
+    "maxCommissionRate": 0,
+    "maxCommissionRateTier2": 0,
+    "unit": "Day",
+    "stripeXref": "string",
+    "paypalXref": "string",
+    "downgradeProductId": 0,
+    "isPublished": true,
+    "publicName": "qf9aY",
+    "publishDate": "2024-04-29T04:17:16.371Z",
+    "publicAllowCoupon": true,
+    "createUser": true,
+    "productServices": [
+    {
+            "memberServiceId": 0,
+            "memberServiceLevelId": 0
+    }
+    ],
+    "productSubscriptionOptions": [
+    {
+            "frequency": "Monthly",
+            "signupFee": 0,
+            "commissionableSignupFeeAmount": 0,
+            "fee": 0,
+            "commissionableFeeAmount": 0,
+            "trialDayCount": 0,
+            "customPeriodCount": 0,
+            "customPeriodType": "Days",
+            "cycles": 0,
+            "gracePeriodDayCount": 0,
+            "stripeXref": "string",
+            "paypalXref": "string"
+    }
+    ],
+    "productUpgradeAssignments": [
+    {
+            "upgradeProductId": 0
+    }
+    ],
+    "productResources": [
+    {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "name": "string",
+            "url": "string",
+            "fileId": "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+    }
+    ],
+    "productEvent": {
+    "location": "ToBeAnnounced",
+    "link": "string",
+    "address": {
+            "streetAddress": "string",
+            "neighborhood": "string",
+            "city": "string",
+            "stateId": "str",
+            "stateName": "string",
+            "zip": "string",
+            "countryId": "st",
+            "countryName": "string"
+    },
+    "date": "2024-04-29T04:17:16.371Z",
+    "time": "string",
+    "durationMinutes": 0,
+    "timezone": "string",
+    "languageId": "st"
+    }
+</code></pre>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
+</code></pre>
+<hr />
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+<h2 id="list-products">LIST PRODUCTS</h2>
+<p>Retrieve a list of all products</p>
+<hr />
+<p>'<strong>GET</strong> {environment domain}/api/services/CRM/Product/GetProducts?type={type}&amp; currency_Id={currencyId}&amp;onlyTenant={onlyTenant}</p>
+<hr />
+<h3 id="request-parameters_2">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>String</td>
+<td><code>General</code>, <code>Subscription</code>, <code>Digital</code>, <code>Event</code></td>
+<td>The type of products to retrieve.</td>
+</tr>
+<tr>
+<td><code>currency_Id</code></td>
+<td>String</td>
+<td><code>USD</code>, <code>JPY</code>, <code>IND</code>, etc.</td>
+<td>The currency ID to filter the products by.</td>
+</tr>
+<tr>
+<td><code>onlyTenant</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to retrieve only products for the current tenant.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
+</code></pre>
+<hr />
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+<h2 id="delete-product">DELETE PRODUCT</h2>
+<p>Remove a product from the system using its ID</p>
+<hr />
+<p>'<strong>DELETE</strong> {environment domain}/api/services/CRM/Product/DeleteProduct?id={{product_id}}</p>
+<hr />
+<h3 id="request-parameters_3">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The id of the product</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
+</code></pre>
+<hr />
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../customers/" class="btn btn-neutral float-left" title="Customers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../coupons/" class="btn btn-neutral float-right" title="Coupons">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../customers/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../coupons/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -62,6 +62,60 @@
               </ul>
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Customers</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#addupdate-customer">ADD/UPDATE CUSTOMER</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#upgradechat-api-parameters">Upgrade.chat API Parameters</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-customer">GET CUSTOMER</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_1">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#delete-customer">DELETE CUSTOMER</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#request-parameters_2">Request Parameters</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../products/">Products</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../coupons/">Coupons</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../invoices/">Invoices</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../payments/">Payments</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../subscriptions/">Subscriptions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../popular/">Popular</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../advanced/">Advanced</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../all_api_endpoints/">All API Endpoints</a>
                 </li>
               </ul>
       </div>
@@ -87,12 +141,1376 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                
+                <h1 id="customers">CUSTOMERS</h1>
+<p>The Tenants resource manages all aspects of tenant lifecycle within the Upgrade.chat multi-tenant system. It provides endpoints for tenant creation, registration, authentication, and configuration. Key features include:</p>
+<ul>
+<li>Two-step tenant creation process</li>
+<li>Tenant-specific authentication</li>
+<li>Account configuration (timezone, currency, contact info)</li>
+<li>API key management</li>
+<li>User management within tenants</li>
+<li>Integration with external services (e.g., Zendesk, Stripe)</li>
+<li>Subscription and product management</li>
+</ul>
+<h2 id="addupdate-customer">ADD/UPDATE CUSTOMER</h2>
+<p>'<strong>POST</strong> {environment domain}/api/services/CRM/Contact/CreateOrUpdateContact'</p>
+<p>Create or update leads, contacts, and customers</p>
+<h3 id="request-parameters">Request Parameters</h3>
+<h2 id="upgradechat-api-parameters">Upgrade.chat API Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>matchExisting</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to match the contact with an existing contact in the system.</td>
+</tr>
+<tr>
+<td><code>parentContactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the parent contact, if the contact being created is a child contact.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains information about the questionnaire and the questions and answers.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionnaire</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Holds information about the questionnaire.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionnaire.xref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The external reference (xref) of the questionnaire.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionnaire.name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the questionnaire.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the questions and answers.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].question</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Holds information about the question.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].question.xref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The external reference (xref) of the question.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].question.type</code></td>
+<td>String</td>
+<td><code>QuestionWithOptions</code></td>
+<td>The type of the question.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].question.text</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The text of the question.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].question.sortOrder</code></td>
+<td>Integer</td>
+<td>Any valid integer</td>
+<td>The sort order of the question.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].answers</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the answers to the question.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].answers[].xref</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The external reference (xref) of the answer.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].answers[].sortOrder</code></td>
+<td>Integer</td>
+<td>Any valid integer</td>
+<td>The sort order of the answer.</td>
+</tr>
+<tr>
+<td><code>questionnaireAnswers.questionsAndAnswers[].answers[].text</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The text of the answer.</td>
+</tr>
+<tr>
+<td><code>contactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the contact.</td>
+</tr>
+<tr>
+<td><code>contactXRef</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The external reference (xref) of the contact.</td>
+</tr>
+<tr>
+<td><code>namePrefix</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The prefix of the contact's name.</td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The first name of the contact.</td>
+</tr>
+<tr>
+<td><code>middleName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The middle name of the contact.</td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The last name of the contact.</td>
+</tr>
+<tr>
+<td><code>nameSuffix</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The suffix of the contact's name.</td>
+</tr>
+<tr>
+<td><code>nickName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The nickname of the contact.</td>
+</tr>
+<tr>
+<td><code>emailAddresses</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the email addresses of the contact.</td>
+</tr>
+<tr>
+<td><code>emailAddresses[].contactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the contact.</td>
+</tr>
+<tr>
+<td><code>emailAddresses[].emailAddress</code></td>
+<td>String</td>
+<td>Any valid email address</td>
+<td>The email address of the contact.</td>
+</tr>
+<tr>
+<td><code>emailAddresses[].isActive</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the email address is active.</td>
+</tr>
+<tr>
+<td><code>emailAddresses[].isConfirmed</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the email address is confirmed.</td>
+</tr>
+<tr>
+<td><code>emailAddresses[].comment</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A comment about the email address.</td>
+</tr>
+<tr>
+<td><code>emailAddresses[].usageTypeId</code></td>
+<td>String</td>
+<td>Any valid usage type ID</td>
+<td>The ID of the usage type for the email address.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the phone numbers of the contact.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers[].contactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the contact.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers[].phoneNumber</code></td>
+<td>String</td>
+<td>Any valid phone number</td>
+<td>The phone number of the contact.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers[].phoneExtension</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The phone extension of the contact.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers[].isActive</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the phone number is active.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers[].isConfirmed</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the phone number is confirmed.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers[].comment</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A comment about the phone number.</td>
+</tr>
+<tr>
+<td><code>phoneNumbers[].usageTypeId</code></td>
+<td>String</td>
+<td>Any valid usage type ID</td>
+<td>The ID of the usage type for the phone number.</td>
+</tr>
+<tr>
+<td><code>addresses</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the addresses of the contact.</td>
+</tr>
+<tr>
+<td><code>addresses[].contactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the contact.</td>
+</tr>
+<tr>
+<td><code>addresses[].startDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The start date of the address.</td>
+</tr>
+<tr>
+<td><code>addresses[].endDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The end date of the address.</td>
+</tr>
+<tr>
+<td><code>addresses[].isActive</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the address is active.</td>
+</tr>
+<tr>
+<td><code>addresses[].isConfirmed</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the address is confirmed.</td>
+</tr>
+<tr>
+<td><code>addresses[].usageTypeId</code></td>
+<td>String</td>
+<td>Any valid usage type ID</td>
+<td>The ID of the usage type for the address.</td>
+</tr>
+<tr>
+<td><code>addresses[].ownershipTypeId</code></td>
+<td>String</td>
+<td>Any valid ownership type ID</td>
+<td>The ID of the ownership type for the address.</td>
+</tr>
+<tr>
+<td><code>addresses[].streetAddress</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The street address.</td>
+</tr>
+<tr>
+<td><code>addresses[].neighborhood</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The neighborhood.</td>
+</tr>
+<tr>
+<td><code>addresses[].city</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The city.</td>
+</tr>
+<tr>
+<td><code>addresses[].stateId</code></td>
+<td>String</td>
+<td>Any valid state ID</td>
+<td>The ID of the state.</td>
+</tr>
+<tr>
+<td><code>addresses[].stateName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the state.</td>
+</tr>
+<tr>
+<td><code>addresses[].zip</code></td>
+<td>String</td>
+<td>Any valid zip code</td>
+<td>The zip code.</td>
+</tr>
+<tr>
+<td><code>addresses[].countryId</code></td>
+<td>String</td>
+<td>Any valid country ID</td>
+<td>The ID of the country.</td>
+</tr>
+<tr>
+<td><code>addresses[].countryName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the country.</td>
+</tr>
+<tr>
+<td><code>addresses[].comment</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A comment about the address.</td>
+</tr>
+<tr>
+<td><code>links</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the links associated with the contact.</td>
+</tr>
+<tr>
+<td><code>links[].contactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the contact.</td>
+</tr>
+<tr>
+<td><code>links[].isConfirmed</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the link is confirmed.</td>
+</tr>
+<tr>
+<td><code>links[].isCompany</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the link is to a company.</td>
+</tr>
+<tr>
+<td><code>links[].url</code></td>
+<td>String</td>
+<td>Any valid URL</td>
+<td>The URL of the link.</td>
+</tr>
+<tr>
+<td><code>links[].isActive</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the link is active.</td>
+</tr>
+<tr>
+<td><code>links[].comment</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A comment about the link.</td>
+</tr>
+<tr>
+<td><code>links[].linkTypeId</code></td>
+<td>String</td>
+<td>Any valid link type ID</td>
+<td>The ID of the link type.</td>
+</tr>
+<tr>
+<td><code>dob</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The date of birth of the contact.</td>
+</tr>
+<tr>
+<td><code>bankCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The bank code of the contact.</td>
+</tr>
+<tr>
+<td><code>bankCodeSource</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The source of the bank code.</td>
+</tr>
+<tr>
+<td><code>gender</code></td>
+<td>String</td>
+<td><code>Female</code>, <code>Male</code>, <code>Other</code></td>
+<td>The gender of the contact.</td>
+</tr>
+<tr>
+<td><code>experience</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The experience of the contact.</td>
+</tr>
+<tr>
+<td><code>profileSummary</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The profile summary of the contact.</td>
+</tr>
+<tr>
+<td><code>note</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A note about the contact.</td>
+</tr>
+<tr>
+<td><code>interests</code></td>
+<td>Array of Strings</td>
+<td>Any valid strings</td>
+<td>The interests of the contact.</td>
+</tr>
+<tr>
+<td><code>companyName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the company.</td>
+</tr>
+<tr>
+<td><code>industry</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The industry of the company.</td>
+</tr>
+<tr>
+<td><code>photo</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains information about the contact's photo.</td>
+</tr>
+<tr>
+<td><code>photo.original</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The URL of the original photo.</td>
+</tr>
+<tr>
+<td><code>photo.thumbnail</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The URL of the thumbnail photo.</td>
+</tr>
+<tr>
+<td><code>photo.source</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The source of the photo.</td>
+</tr>
+<tr>
+<td><code>photo.comment</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A comment about the photo.</td>
+</tr>
+<tr>
+<td><code>sourceContactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the source contact.</td>
+</tr>
+<tr>
+<td><code>sourceOrganizationUnitId</code></td>
+<td>Integer</td>
+<td>Any valid organization unit ID</td>
+<td>The ID of the source organization unit.</td>
+</tr>
+<tr>
+<td><code>personAffiliateCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The affiliate code of the person.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The title of the contact.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the tags associated with the contact.</td>
+</tr>
+<tr>
+<td><code>tags[].name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the tag.</td>
+</tr>
+<tr>
+<td><code>lists</code></td>
+<td>Array of Objects</td>
+<td>-</td>
+<td>Contains the lists associated with the contact.</td>
+</tr>
+<tr>
+<td><code>lists[].name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the list.</td>
+</tr>
+<tr>
+<td><code>assignedUserId</code></td>
+<td>Integer</td>
+<td>Any valid user ID</td>
+<td>The ID of the user the contact is assigned to.</td>
+</tr>
+<tr>
+<td><code>ratingId</code></td>
+<td>Integer</td>
+<td>Any valid rating ID</td>
+<td>The ID of the rating for the contact.</td>
+</tr>
+<tr>
+<td><code>preferredLanguageCode</code></td>
+<td>String</td>
+<td>Any valid language code</td>
+<td>The preferred language code of the contact.</td>
+</tr>
+<tr>
+<td><code>contactGroupId</code></td>
+<td>String</td>
+<td>Any valid contact group ID</td>
+<td>The ID of the contact group.</td>
+</tr>
+<tr>
+<td><code>isActive</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the contact is active.</td>
+</tr>
+<tr>
+<td><code>isProspective</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the contact is a prospective customer.</td>
+</tr>
+<tr>
+<td><code>partnerTypeName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the partner type.</td>
+</tr>
+<tr>
+<td><code>leadTypeId</code></td>
+<td>Integer</td>
+<td>Any valid lead type ID</td>
+<td>The ID of the lead type.</td>
+</tr>
+<tr>
+<td><code>leadTypeSysId</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The system ID of the lead type.</td>
+</tr>
+<tr>
+<td><code>stageId</code></td>
+<td>Integer</td>
+<td>Any valid stage ID</td>
+<td>The ID of the stage.</td>
+</tr>
+<tr>
+<td><code>dealAmount</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The deal amount.</td>
+</tr>
+<tr>
+<td><code>currencyId</code></td>
+<td>String</td>
+<td>Any valid currency ID</td>
+<td>The ID of the currency.</td>
+</tr>
+<tr>
+<td><code>installmentAmount</code></td>
+<td>Decimal</td>
+<td>Any valid decimal number</td>
+<td>The installment amount.</td>
+</tr>
+<tr>
+<td><code>followUpDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The follow-up date.</td>
+</tr>
+<tr>
+<td><code>trackingInfo</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains information about the tracking of the contact.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.sourceCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The source code.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.channelCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The channel code.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.campaignCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The campaign code.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.affiliateCode</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The affiliate code.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.refererUrl</code></td>
+<td>String</td>
+<td>Any valid URL</td>
+<td>The referrer URL.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.entryUrl</code></td>
+<td>String</td>
+<td>Any valid URL</td>
+<td>The entry URL.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.userAgent</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The user agent.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.clientIp</code></td>
+<td>String</td>
+<td>Any valid IP address</td>
+<td>The client IP address.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.siteUrl</code></td>
+<td>String</td>
+<td>Any valid URL</td>
+<td>The site URL.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.comments</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Comments about the tracking.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.customField1</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Custom field 1.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.customField2</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Custom field 2.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.customField3</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Custom field 3.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.customField4</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Custom field 4.</td>
+</tr>
+<tr>
+<td><code>trackingInfo.customField5</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>Custom field 5.</td>
+</tr>
+<tr>
+<td><code>utmParameter</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains information about the UTM parameters.</td>
+</tr>
+<tr>
+<td><code>utmParameter.source</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM source.</td>
+</tr>
+<tr>
+<td><code>utmParameter.medium</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM medium.</td>
+</tr>
+<tr>
+<td><code>utmParameter.campaign</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM campaign.</td>
+</tr>
+<tr>
+<td><code>utmParameter.term</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM term.</td>
+</tr>
+<tr>
+<td><code>utmParameter.content</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM content.</td>
+</tr>
+<tr>
+<td><code>utmParameter.keyword</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM keyword.</td>
+</tr>
+<tr>
+<td><code>utmParameter.adGroup</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM ad group.</td>
+</tr>
+<tr>
+<td><code>utmParameter.name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The UTM name.</td>
+</tr>
+<tr>
+<td><code>inviteUser</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to invite the user.</td>
+</tr>
+<tr>
+<td><code>generateAutoLoginLink</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to generate an auto-login link.</td>
+</tr>
+<tr>
+<td><code>newUserPassword</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The password for the new user.</td>
+</tr>
+<tr>
+<td><code>changeNewUserPasswordOnNextLogin</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the new user should change the password on the next login.</td>
+</tr>
+<tr>
+<td><code>noWelcomeEmail</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to skip sending the welcome email.</td>
+</tr>
+<tr>
+<td><code>welcomeEmailTemplateRef</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The reference to the welcome email template.</td>
+</tr>
+<tr>
+<td><code>propertyInfo</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains information about the property.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.propertyId</code></td>
+<td>Integer</td>
+<td>Any valid property ID</td>
+<td>The ID of the property.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.name</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the property.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address</code></td>
+<td>Object</td>
+<td>-</td>
+<td>Contains the address of the property.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.contactId</code></td>
+<td>Integer</td>
+<td>Any valid contact ID</td>
+<td>The ID of the contact.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.startDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The start date of the address.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.endDate</code></td>
+<td>Date</td>
+<td>Any valid date</td>
+<td>The end date of the address.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.isActive</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the address is active.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.isConfirmed</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether the address is confirmed.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.usageTypeId</code></td>
+<td>String</td>
+<td>Any valid usage type ID</td>
+<td>The ID of the usage type for the address.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.ownershipTypeId</code></td>
+<td>String</td>
+<td>Any valid ownership type ID</td>
+<td>The ID of the ownership type for the address.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.streetAddress</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The street address.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.neighborhood</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The neighborhood.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.city</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The city.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.stateId</code></td>
+<td>String</td>
+<td>Any valid state ID</td>
+<td>The ID of the state.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.stateName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the state.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.zip</code></td>
+<td>String</td>
+<td>Any valid zip code</td>
+<td>The zip code.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.countryId</code></td>
+<td>String</td>
+<td>Any valid country ID</td>
+<td>The ID of the country.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.countryName</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The name of the country.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.address.comment</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A comment about the address.</td>
+</tr>
+<tr>
+<td><code>propertyInfo.note</code></td>
+<td>String</td>
+<td>Any valid string</td>
+<td>A note about the property.</td>
+</tr>
+<tr>
+<td><code>bypassValidation</code></td>
+<td>Boolean</td>
+<td><code>true</code>, <code>false</code></td>
+<td>Indicates whether to bypass validation.</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Body</strong></p>
+<pre><code>    {
+    "matchExisting": true,
+    "parentContactId": 0,
+    "questionnaireAnswers": {
+        "questionnaire": {
+        "xref": "string",
+        "name": "string"
+        },
+        "questionsAndAnswers": [
+        {
+            "question": {
+            "xref": "string",
+            "type": "QuestionWithOptions",
+            "text": "string",
+            "sortOrder": 0
+            },
+            "answers": [
+            {
+                "xref": "string",
+                "sortOrder": 0,
+                "text": "string"
+            }
+            ]
+        }
+        ]
+    },
+    "contactId": 0,
+    "contactXRef": "string",
+    "namePrefix": "string",
+    "firstName": "string",
+    "middleName": "string",
+    "lastName": "string",
+    "nameSuffix": "string",
+    "nickName": "string",
+    "emailAddresses": [
+        {
+        "contactId": 0,
+        "emailAddress": "string",
+        "isActive": true,
+        "isConfirmed": true,
+        "comment": "string",
+        "usageTypeId": "string"
+        }
+    ],
+    "phoneNumbers": [
+        {
+        "contactId": 0,
+        "phoneNumber": "string",
+        "phoneExtension": "string",
+        "isActive": true,
+        "isConfirmed": true,
+        "comment": "string",
+        "usageTypeId": "string"
+        }
+    ],
+    "addresses": [
+        {
+        "contactId": 0,
+        "startDate": "2024-04-29",
+        "endDate": "2024-04-29",
+        "isActive": true,
+        "isConfirmed": true,
+        "usageTypeId": "string",
+        "ownershipTypeId": "string",
+        "streetAddress": "string",
+        "neighborhood": "string",
+        "city": "string",
+        "stateId": "string",
+        "stateName": "string",
+        "zip": "string",
+        "countryId": "string",
+        "countryName": "string",
+        "comment": "string"
+        }
+    ],
+    "links": [
+        {
+        "contactId": 0,
+        "isConfirmed": true,
+        "isCompany": true,
+        "url": "string",
+        "isActive": true,
+        "comment": "string",
+        "linkTypeId": "string"
+        }
+    ],
+    "dob": "2024-04-29T04:25:54.857Z",
+    "bankCode": "stri",
+    "bankCodeSource": "string",
+    "gender": "Female",
+    "experience": "string",
+    "profileSummary": "string",
+    "note": "string",
+    "interests": [
+        "string"
+    ],
+    "companyName": "string",
+    "industry": "string",
+    "photo": {
+        "original": "string",
+        "thumbnail": "string",
+        "source": "string",
+        "comment": "string"
+    },
+    "sourceContactId": 0,
+    "sourceOrganizationUnitId": 0,
+    "personAffiliateCode": "string",
+    "title": "string",
+    "tags": [
+        {
+        "name": "string"
+        }
+    ],
+    "lists": [
+        {
+        "name": "string"
+        }
+    ],
+    "assignedUserId": 0,
+    "ratingId": 0,
+    "preferredLanguageCode": "string",
+    "contactGroupId": "s",
+    "isActive": true,
+    "isProspective": true,
+    "partnerTypeName": "string",
+    "leadTypeId": 0,
+    "leadTypeSysId": "string",
+    "stageId": 0,
+    "dealAmount": 0,
+    "currencyId": "string",
+    "installmentAmount": 0,
+    "followUpDate": "2024-04-29T04:25:54.857Z",
+    "trackingInfo": {
+        "sourceCode": "string",
+        "channelCode": "string",
+        "campaignCode": "string",
+        "affiliateCode": "string",
+        "refererUrl": "string",
+        "entryUrl": "string",
+        "userAgent": "string",
+        "clientIp": "string",
+        "siteUrl": "string",
+        "comments": "string",
+        "customField1": "string",
+        "customField2": "string",
+        "customField3": "string",
+        "customField4": "string",
+        "customField5": "string"
+    },
+    "utmParameter": {
+        "source": "string",
+        "medium": "string",
+        "campaign": "string",
+        "term": "string",
+        "content": "string",
+        "keyword": "string",
+        "adGroup": "string",
+        "name": "string"
+    },
+    "inviteUser": true,
+    "generateAutoLoginLink": true,
+    "newUserPassword": "string",
+    "changeNewUserPasswordOnNextLogin": true,
+    "noWelcomeEmail": true,
+    "welcomeEmailTemplateRef": "string",
+    "propertyInfo": {
+        "propertyId": 0,
+        "name": "string",
+        "address": {
+        "contactId": 0,
+        "startDate": "2024-04-29",
+        "endDate": "2024-04-29",
+        "isActive": true,
+        "isConfirmed": true,
+        "usageTypeId": "string",
+        "ownershipTypeId": "string",
+        "streetAddress": "string",
+        "neighborhood": "string",
+        "city": "string",
+        "stateId": "string",
+        "stateName": "string",
+        "zip": "string",
+        "countryId": "string",
+        "countryName": "string",
+        "comment": "string"
+        },
+        "note": "string"
+    },
+    "bypassValidation": true
+    }
+</code></pre>
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://betacrm.upgrade.chat/api/services/CRM/Lead/SubmitTenancyRequest' \
+    -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
+    -d '{
+    "companyName": "string",
+    "products": [
+        {
+        "productId": 0,
+        "paymentPeriodType": "Monthly",
+        "quantity": 0
+        }
+    ],
+    "couponCode": "string",
+    "website": "string",
+    "city": "lpl'\''pN'\''}'\''N'\''L}L'\''{}pl{lLll'\''{pp{N'\''llN}L}{}L}{'\''Llp{pNp",
+    "state": "ab",
+    "stage": "string",
+    "tag": "string",
+    "utmParameter": {
+        "source": "string",
+        "medium": "string",
+        "campaign": "string",
+        "term": "string",
+        "content": "string",
+        "keyword": "string",
+        "adGroup": "string",
+        "name": "string"
+    },
+    "leadRequestXref": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "8BOXja9E}L7!w/pKMr?qFiJB+xaD2.$?76h?zc_wVAo.n=%a+4#|_mvyW*zX^.EyHgBu!Tv*aszZd5tU$L*tSIHMTkv1qQ+NJG+D",
+    "phone": "string",
+    "phoneExt": "string",
+    "comments": "string",
+    "sourceCode": "string",
+    "channelCode": "string",
+    "campaignCode": "string",
+    "affiliateCode": "string",
+    "refererUrl": "string",
+    "entryUrl": "string",
+    "userAgent": "string",
+    "clientIp": "string",
+    "isHelpNeeded": true
+    }'
+</code></pre>
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
+<h2 id="get-customer">GET CUSTOMER</h2>
+<p>'<strong>GET</strong> {environment domain}/api/services/CRM/Contact/GetContactInfo?id=contact_id'</p>
+<p>Get customer information</p>
+<h3 id="request-parameters_1">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>contact_id</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The id of contact</td>
+</tr>
+<tr>
+<td>***</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://betacrm.upgrade.chat/api/services/CRM/Lead/SubmitTenancyRequest' \
+    -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
+    -d '{
+    "companyName": "string",
+    "products": [
+        {
+        "productId": 0,
+        "paymentPeriodType": "Monthly",
+        "quantity": 0
+        }
+    ],
+    "couponCode": "string",
+    "website": "string",
+    "city": "lpl'\''pN'\''}'\''N'\''L}L'\''{}pl{lLll'\''{pp{N'\''llN}L}{}L}{'\''Llp{pNp",
+    "state": "ab",
+    "stage": "string",
+    "tag": "string",
+    "utmParameter": {
+        "source": "string",
+        "medium": "string",
+        "campaign": "string",
+        "term": "string",
+        "content": "string",
+        "keyword": "string",
+        "adGroup": "string",
+        "name": "string"
+    },
+    "leadRequestXref": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "8BOXja9E}L7!w/pKMr?qFiJB+xaD2.$?76h?zc_wVAo.n=%a+4#|_mvyW*zX^.EyHgBu!Tv*aszZd5tU$L*tSIHMTkv1qQ+NJG+D",
+    "phone": "string",
+    "phoneExt": "string",
+    "comments": "string",
+    "sourceCode": "string",
+    "channelCode": "string",
+    "campaignCode": "string",
+    "affiliateCode": "string",
+    "refererUrl": "string",
+    "entryUrl": "string",
+    "userAgent": "string",
+    "clientIp": "string",
+    "isHelpNeeded": true
+    }'
+</code></pre>
+<p><strong>Response: 200 (Success)</strong></p>
+<hr />
+<h2 id="delete-customer">DELETE CUSTOMER</h2>
+<p>'<strong>DELETE</strong> {environment domain}/api/services/CRM/Contact/DeleteContact?id=customer_id'</p>
+<p>Delete customer information</p>
+<h3 id="request-parameters_2">Request Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>FIELD NAME</th>
+<th>FORMAT</th>
+<th>VALID VALUES</th>
+<th>DESCRIPTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customer_id</td>
+<td>String</td>
+<td>Any valid string</td>
+<td>The id of the customer</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://betacrm.upgrade.chat/api/services/CRM/Lead/SubmitTenancyRequest' \
+    -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
+    -d '{
+    "companyName": "string",
+    "products": [
+        {
+        "productId": 0,
+        "paymentPeriodType": "Monthly",
+        "quantity": 0
+        }
+    ],
+    "couponCode": "string",
+    "website": "string",
+    "city": "lpl'\''pN'\''}'\''N'\''L}L'\''{}pl{lLll'\''{pp{N'\''llN}L}{}L}{'\''Llp{pNp",
+    "state": "ab",
+    "stage": "string",
+    "tag": "string",
+    "utmParameter": {
+        "source": "string",
+        "medium": "string",
+        "campaign": "string",
+        "term": "string",
+        "content": "string",
+        "keyword": "string",
+        "adGroup": "string",
+        "name": "string"
+    },
+    "leadRequestXref": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "8BOXja9E}L7!w/pKMr?qFiJB+xaD2.$?76h?zc_wVAo.n=%a+4#|_mvyW*zX^.EyHgBu!Tv*aszZd5tU$L*tSIHMTkv1qQ+NJG+D",
+    "phone": "string",
+    "phoneExt": "string",
+    "comments": "string",
+    "sourceCode": "string",
+    "channelCode": "string",
+    "campaignCode": "string",
+    "affiliateCode": "string",
+    "refererUrl": "string",
+    "entryUrl": "string",
+    "userAgent": "string",
+    "clientIp": "string",
+    "isHelpNeeded": true
+    }'
+</code></pre>
+<p><strong>Sample Response: 200 (Success)</strong></p>
+<pre><code>    {
+    "leadRequestXref": "string",
+    "contactId": 0
+    }
+</code></pre>
+<hr />
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../tenants/" class="btn btn-neutral float-left" title="Tenants"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../products/" class="btn btn-neutral float-right" title="Products">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -117,6 +1535,8 @@
     
       <span><a href="../tenants/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../products/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
