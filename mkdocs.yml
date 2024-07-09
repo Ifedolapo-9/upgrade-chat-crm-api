@@ -9,6 +9,15 @@ nav:
   - Rate Limits: rate_limits.md
   - Tenants: tenants.md
   - Customers: customers.md
+  - Products: products.md
+  - Coupons: coupons.md
+  - Invoices: invoices.md
+  - Payments: payments.md
+  - Subscriptions: subscriptions.md
+  - Popular: popular.md
+  - Advanced: advanced.md
+  - All API Endpoints: all_api_endpoints.md
+
 
 
  

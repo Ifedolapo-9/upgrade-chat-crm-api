@@ -138,6 +138,16 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="tenants">TENANTS</h1>
+<p>The Tenants resource manages all aspects of tenant lifecycle within the Upgrade.chat multi-tenant system. It provides endpoints for tenant creation, registration, authentication, and configuration. Key features include:</p>
+<ul>
+<li>Two-step tenant creation process</li>
+<li>Tenant-specific authentication</li>
+<li>Account configuration (timezone, currency, contact info)</li>
+<li>API key management</li>
+<li>User management within tenants</li>
+<li>Integration with external services (e.g., Zendesk, Stripe)</li>
+<li>Subscription and product management</li>
+</ul>
 <h2 id="add-tenants-1">Add Tenants (1)</h2>
 <p>'<strong>POST</strong>  {environment domain}/api/services/CRM/Lead/SubmitTenancyRequest'</p>
 <p>Submit the request for a new tenant to the system</p>
@@ -288,35 +298,7 @@
 </tbody>
 </table>
 <p><strong>Request Body</strong></p>
-<pre><code>    {
-    "companyName": "TestCRM", //Business Name from the first form
-    "products": [
-        {
-        "productId": 318, // This is the platform ProductId be able to pass it here becuase products will be created before. 
-        "paymentPeriodType": "Monthly", // We support several Periods.But on your form I saw 2 values: Monthly and Annual
-        "quantity": 1 // must 1 becuase this is subscription
-        }
-    ],
-    //"website"        : "www.Ajacco.com",         // It will be stored as website link in Contact Details
-        "city"           : "Dallas",                 // City from "Tell Us About Yourself" form
-        "state"          : "TX",                     // State from "Tell Us About Yourself" form
-    //"stage"          : "Interested",             // You can set in which stage this lead will be added
-    //"tag"            : "Partner Referral",       // You can assign any tag to this contact 
-        "firstName"      : "John",                   // First Name from the first form
-        "lastName"       : "Doe",                    // Last Name from the first form
-        "email"          : "john.doe@testemail.com", // Email from the first form
-        "phone"          : "+15059333763",           // Whole Phone number (with+ and country code) from "Tell Us About Yourself" form
-    //"phoneExt"       : "665",                    // cab be skipped as you do not have it
-    //"comments"       : "This Postman request",   // You can pass here any text. It will be stored as a Lead Comment
-    //"sourceCode"     : "Manual",                 // This is tracking parameter which can be skipped if you do not use 
-    //"channelCode"    : "Postman",                // This is tracking parameter which can be skipped if you do not use 
-        "affiliateCode"  : "SomeCode"                // Referral Code from the first form
-    //"isHelpNeeded"   : true                      // do not need
-
-    }'/'''
-</code></pre>
-<p><strong>Request Body</strong>
-    {
+<pre><code>        {
     "companyName": "string",
     "products": [
         {
@@ -327,8 +309,8 @@
     ],
     "couponCode": "string",
     "website": "string",
-    "city": "}NLlplpNp}L{{Nlpp{pN{}l}p}p{pp'p''}'}pNL{LLlN-{lNN",
-    "state": "hp",
+    "city": "lpl'pN'}'N'L}L'{}pl{lLll'{pp{N'llN}L}{}L}{'Llp{pNp",
+    "state": "ab",
     "stage": "string",
     "tag": "string",
     "utmParameter": {
@@ -344,7 +326,7 @@
     "leadRequestXref": "string",
     "firstName": "string",
     "lastName": "string",
-    "email": "73XduH5qK-Y#Nev+U&amp;YDs$0k7lAqs4$Lko-d`-IblrU$oGnJ-KA'3/&amp;rxXT~^G+TZl$Jk9T26d4GS$u|ys?hyH.iY~o'gI=5=x/F",
+    "email": "8BOXja9E}L7!w/pKMr?qFiJB+xaD2.$?76h?zc_wVAo.n=%a+4#|_mvyW*zX^.EyHgBu!Tv*aszZd5tU$L*tSIHMTkv1qQ+NJG+D",
     "phone": "string",
     "phoneExt": "string",
     "comments": "string",
@@ -357,12 +339,63 @@
     "userAgent": "string",
     "clientIp": "string",
     "isHelpNeeded": true
-    }/'''</p>
-<p><strong>Sample Response: 200</strong>
-    {
+    }
+</code></pre>
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
+    'https://betacrm.upgrade.chat/api/services/CRM/Lead/SubmitTenancyRequest' \
+    -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
+    -d '{
+    "companyName": "string",
+    "products": [
+        {
+        "productId": 0,
+        "paymentPeriodType": "Monthly",
+        "quantity": 0
+        }
+    ],
+    "couponCode": "string",
+    "website": "string",
+    "city": "lpl'\''pN'\''}'\''N'\''L}L'\''{}pl{lLll'\''{pp{N'\''llN}L}{}L}{'\''Llp{pNp",
+    "state": "ab",
+    "stage": "string",
+    "tag": "string",
+    "utmParameter": {
+        "source": "string",
+        "medium": "string",
+        "campaign": "string",
+        "term": "string",
+        "content": "string",
+        "keyword": "string",
+        "adGroup": "string",
+        "name": "string"
+    },
+    "leadRequestXref": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "email": "8BOXja9E}L7!w/pKMr?qFiJB+xaD2.$?76h?zc_wVAo.n=%a+4#|_mvyW*zX^.EyHgBu!Tv*aszZd5tU$L*tSIHMTkv1qQ+NJG+D",
+    "phone": "string",
+    "phoneExt": "string",
+    "comments": "string",
+    "sourceCode": "string",
+    "channelCode": "string",
+    "campaignCode": "string",
+    "affiliateCode": "string",
+    "refererUrl": "string",
+    "entryUrl": "string",
+    "userAgent": "string",
+    "clientIp": "string",
+    "isHelpNeeded": true
+    }'
+</code></pre>
+<p><strong>Sample Response: 200</strong></p>
+<pre><code>    {
     "leadRequestXref": "string",
     "contactId": 0
-    }/'''</p>
+    }
+</code></pre>
 <hr />
 <h2 id="add-tenants-2">Add Tenants (2)</h2>
 <p>Complete Tenant Registration</p>
@@ -443,24 +476,25 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Response Body</strong></p>
-<pre><code>    {
-        "tenantName": "Ajacco", //it will be used as Name of the Tenant. It can be Bussiness Name from first or the second form
-        //"siteUrl": "", // optional
-        "adminPassword": "Qq123456789", //Required. It can be password from the first form or autogenerateds
-        //"tenancyName": "", // optional
-        "companyName": "Ajacco",//It can be Bussiness Name from first or the second form
-        "requestXref": "7244d39e-2b4c-444a-9237-25a8a502a42b",//leadRequestXref parameter from SubmitTenancyRequest's output
-        "returnBearerToken": true// If true BearerToken will be returted in output. I think we will need this bearer to run requests unter the tenant
-    }/'''
+<p><strong>Request Body</strong></p>
+<pre><code>{
+"requestXref": "string",
+"tenancyName": "fr_Ou9l",
+"tenantName": "string",
+"companyName": "string",
+"siteUrl": "string",
+"adminPassword": "string",
+"noWelcomeEmail": true,
+"returnBearerToken": true
+}
 </code></pre>
 <hr />
-<p><strong>Sample Request</strong>
-    curl -X 'POST' \
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
     'https://crm.upgrade.chat/api/services/Platform/TenantSubscription/CompleteTenantRegistration' \
     -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
     -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
-    -H 'Authorization: null' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
     -d '{
     "requestXref": "string",
     "tenancyName": "cg514QZFCmhBNILbzF",
@@ -470,9 +504,10 @@
     "adminPassword": "string",
     "noWelcomeEmail": true,
     "returnBearerToken": true
-    }'/'''</p>
-<p><strong>Sample Response: 200</strong>
-    {
+    }
+</code></pre>
+<p><strong>Sample Response: 200</strong></p>
+<pre><code>    {
     "tenantId": 0,
     "tenancyName": "string",
     "name": "string",
@@ -486,7 +521,8 @@
     "publicInvoiceId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "bearerAccessToken": "string",
     "bearerRefreshToken": "string"
-    }/'''</p>
+    }
+</code></pre>
 <hr />
 <h2 id="generate-api-key">Generate API KEY</h2>
 <p>Create API key for tenant's account future actions </p>
@@ -536,23 +572,30 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Request Body</strong>
-    {
+<p><strong>Request Body</strong></p>
+<pre><code>    {
     "name": "string",
     "expirationDate": "2024-06-21T08:58:52.393Z",
     "userId": 0,
     "paths": "string"
-    }/'''</p>
-<p><strong>Sample Request</strong>
-        {
-        "name": "string", // A certain name of the API KEY
-        "expirationDate": "2023-12-12T16:40:40.016Z", // You have to set the expiration time of the API KEY. After this time API KEY will not work
-        "userId": 0,// Optional. CRM User ID. It can be passed if you are going to generate API KEY for another user. Can be skipped then API KEY will be generated for user which is logged in
-        "paths": "string" // Optional. Here the list of API methods can be set and this API KEY will work only for those API methods
-        }/'''</p>
+    }
+</code></pre>
+<p><strong>Sample Request</strong></p>
+<pre><code>            curl -X 'POST' \
+    'https://betacrm.upgrade.chat/api/services/Platform/ApiKey/Generate' \
+    -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
+    -d '{
+    "name": "string",
+    "expirationDate": "2024-06-21T23:56:38.628Z",
+    "userId": 0,
+    "paths": "string"
+    }
+</code></pre>
 <hr />
-<p><strong>Sample Response: 200</strong>
-    {
+<p><strong>Sample Response: 200</strong></p>
+<pre><code>    {
     "id": 0,
     "name": "string",
     "key": "string",
@@ -561,7 +604,8 @@
     "userId": 0,
     "userName": "string",
     "paths": "string"
-    }/'''</p>
+    }/'''
+</code></pre>
 <hr />
 <h2 id="link-tenants">Link Tenants</h2>
 <p>Link multiple tenants</p>
@@ -605,23 +649,25 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Response Body</strong>
-    {
+<p><strong>Response Body</strong></p>
+<pre><code>    {
     "tenancyName": "string",
     "usernameOrEmailAddress": "string",
     "password": "string"
-    }/'''</p>
-<p><strong>Sample Request</strong>
-    curl -X 'POST' \
+    }/'''
+</code></pre>
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'POST' \
     'https://crm.upgrade.chat/api/services/Platform/UserLink/LinkToUser' \
-    -H 'accept: <em>/</em>' \
+    -H 'accept: */*' \
     -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
-    -H 'Authorization: null' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
     -d '{
     "tenancyName": "string",
     "usernameOrEmailAddress": "string",
     "password": "string"
-    }'/'''</p>
+    }'/'''
+</code></pre>
 <hr />
 <p><strong>Response: 200 (Success)</strong></p>
 <hr />
@@ -655,11 +701,12 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Sample Request</strong>
-    curl -X 'DELETE' \
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'DELETE' \
     'https://crm.upgrade.chat/api/services/Platform/Tenant/DeleteTenant' \
-    -H 'accept: <em>/</em>' \
-    -H 'Authorization: Bearer <your token>'/'''</p>
+    -H 'accept: */*' \
+    -H 'Authorization: Bearer &lt;your key&gt;'/'''
+</code></pre>
 <hr />
 <p><strong>Response: 200 (Success)</strong></p>
 <hr />
@@ -729,23 +776,24 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Response Body</strong>
-        {
-            "defaultCountryCode": "US",
-            "timezone": "",
-            "timezoneForComparison": "UTC",
-            "zendeskAccountUrl": "",
-            "publicPhone": null,
-            "currency": "JPY",
-            "publicSiteUrl": null
-        }/'''</p>
+<p><strong>Response Body</strong></p>
+<pre><code>    {
+        "defaultCountryCode": "US",
+        "timezone": "",
+        "timezoneForComparison": "UTC",
+        "zendeskAccountUrl": "",
+        "publicPhone": null,
+        "currency": "JPY",
+        "publicSiteUrl": null
+    }/'''
+</code></pre>
 <hr />
-<p><strong>Sample Request</strong>
-    curl -X 'PUT' \
+<p><strong>Sample Request</strong></p>
+<pre><code>    curl -X 'PUT' \
     'https://crm.upgrade.chat/api/services/Platform/TenantSettings/UpdateGeneralSettings' \
-    -H 'accept: <em>/</em>' \
+    -H 'accept: */*' \
     -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
-    -H 'Authorization: null' \
+    -H 'Authorization: Bearer &lt;your key&gt;' \
     -d '{
     "defaultCountryCode": "string",
     "timezone": "string",
@@ -754,7 +802,8 @@
     "publicPhone": "string",
     "currency": "string",
     "publicSiteUrl": "string"
-    }'/'''</p>
+    }'/'''
+</code></pre>
 <hr />
 <p><strong>Response: 200 (Sucess)</strong></p>
 <hr />
@@ -795,10 +844,11 @@
 </tbody>
 </table>
 <p><strong>Sample Request</strong></p>
-<p>curl -X 'GET' \
-  'https://crm.upgrade.chat/api/services/Platform/User/GetAutoLoginLink' \
-  -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
-  -H 'Authorization: null'/'''</p>
+<pre><code>    curl -X 'GET' \
+    'https://crm.upgrade.chat/api/services/Platform/User/GetAutoLoginLink' \
+    -H 'accept: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your key&gt;'/'''
+</code></pre>
 <hr />
 <p><strong>Response: 200</strong></p>
 <h2 id="set-stripe-connected-account">Set Stripe Connected Account</h2>
@@ -831,19 +881,21 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Response Body</strong>
-{
-  "connectedAccountId": "acct_1MD475HHdexuAbVt"</p>
-<p>}</p>
+<p><strong>Response Body</strong></p>
+<pre><code>    {
+    "connectedAccountId": "acct_1MD475HHdexuAbVt"
+
+    }
+</code></pre>
 <p><strong>Sample Request</strong></p>
-<pre><code>curl -X 'POST' \
-'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
--H 'accept: */*' \
--H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
--H 'Authorization: Bearer &lt;your token&gt;' \
--d '{
-"connectedAccountId": "string"
-}'/'''
+<pre><code>    curl -X 'POST' \
+    'https://crm.upgrade.chat/api/services/CRM/TenantPaymentSettings/SetStripeConnectedAccount' \
+    -H 'accept: */*' \
+    -H 'Content-Type: application/json;odata.metadata=minimal;odata.streaming=true' \
+    -H 'Authorization: Bearer &lt;your token&gt;' \
+    -d '{
+    "connectedAccountId": "string"
+    }'/'''
 </code></pre>
 <hr />
 <p><strong>Response: 200 (Success)</strong></p>
